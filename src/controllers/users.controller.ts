@@ -37,7 +37,7 @@ export class UsersController {
         new FollowService(),
       );
 
-      const result = await service.getById(userId);
+      const result = await service.getById(userId as string);
 
       res.status(200).json({
         success: true,

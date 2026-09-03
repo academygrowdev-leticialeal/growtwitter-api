@@ -52,7 +52,7 @@ export class TweetsController {
       const service = new TweetService(new LikeService());
 
       const result = await service.findTweet({
-        tweetId: id,
+        tweetId: id as string,
       });
 
       res.status(200).json({
@@ -75,7 +75,7 @@ export class TweetsController {
 
       const result = await service.updateTweet({
         authorId,
-        tweetId: id,
+        tweetId: id as string,
         content,
       });
 
@@ -98,7 +98,7 @@ export class TweetsController {
 
       const result = await service.deleteTweet({
         authorId,
-        tweetId: id,
+        tweetId: id as string,
       });
 
       res.status(200).json({
@@ -117,7 +117,7 @@ export class TweetsController {
 
       const service = new TweetService(new LikeService());
 
-      const result = await service.listTweetsByUserId(userId);
+      const result = await service.listTweetsByUserId(userId as string);
 
       res.status(200).json({
         success: true,
